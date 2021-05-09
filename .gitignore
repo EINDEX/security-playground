@@ -1,0 +1,9 @@
+*.iml
+*.ipr
+*.iws
+
+dataSources
+.ideaDataSources
+.env
+__pycache__
+__pycache__/*

@@ -1,0 +1,54 @@
+{
+  "csp": {
+    "label": "Content-Security-Policy",
+    "options": {
+      "default": "default-src: 'self'",
+      "default-none": "default-src: 'none'",
+      "img-src": "img-src: 'self'",
+      "img-https": "img-src: https://",
+      "img-inline": "img-src: data"
+    }
+  },
+  "sts": {
+    "label": "Strict-Transport-Security",
+    "options": {
+      "max-age-10": "max-age=10",
+      "max-age-60": "max-age=60"
+    }
+  },
+  "x_frame": {
+    "label": "X-Frame-Options",
+    "options": {
+      "deny": "deny",
+      "sameorigin": "sameorigin",
+      "allow-from": "allow-from https://sec.eindex.me"
+    }
+  },
+  "x_content": {
+    "label": "X-Content-Type-Options",
+    "options": {
+      "nosniff": "nosniff"
+    }
+  },
+  "referrer_policy": {
+    "label": "Referrer-Policy",
+    "options": {
+      "no-referrer": "no-referrer",
+      "no-referrer-when-downgrade": "no-referrer-when-downgrade",
+      "origin": "origin",
+      "origin-when-cross-origin": "origin-when-cross-origin",
+      "same-origin": "same-origin",
+      "strict-origin": "strict-origin",
+      "strict-origin-when-cross-origin": "strict-origin-when-cross-origin",
+      "unsafe-url": "unsafe-url"
+    }
+  },
+  "permission_policy": {
+    "label": "Permissions-Policy",
+    "options": {
+      "microphone": "microphone=()",
+      "geolocation": "geolocation=()",
+      "fullscreen": "fullscreen=()"
+    }
+  }
+}

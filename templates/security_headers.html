@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Headers</title>
+    <link href="/static/alert.js" rel="stylesheet">
+</head>
+<body>
+<h1>Security Headers</h1>
+
+<h2>Testing Headers</h2>
+<form method="get" action="/security-headers">
+    {% for key, header_from_info in header_from.items() %}
+    <p>
+        <label for="{{ key }}">Choose {{ header_from_info["label"] }}</label>
+        <select name="{{ key }}" id="{{ key }}">
+            <option value="">"Empty"</option>
+            {% for option_key, option_text in header_from_info["options"].items() %}
+            <option value="{{ option_key }}"
+                    {% if option_key== header_from_info["default"] %} selected {% endif %}
+            >{{ option_text }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
+<p>
+<h2>Now:</h2>
+{% for header, value in headers.items() %}
+<p>{{ header }}: {{ value }} </p>
+{% endfor %}
+</p>
+
+<h2>Referrer Checking</h2>
+<a href="/security-headers/referrer" type="blank">Referrer Checking</a>
+<a href="http://checking.sec.eindex.me/security-headers/referrer" type="blank">http: Referrer Checking</a>
+<a href="https://www.whatismyreferer.com/" type="blank">https: What my Referrer</a>
+
+
+<h2>Content-Security-Policy</h2>
+<h3>Img</h3>
+<span>inline data img</span> <img width="16px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACc1BMVEVPUXhOUHdNT3dMTnZeX4F1dpCKi56YmKecm6mVlKWEhJlsbYpWWHxNT3ZSVHl3d5GurrbX1tLr6d/y8OT18ub18+b08ubx7+Pl5NvJx8eUlKRgYYJmZ4aysrjp59718+f08uXz8eXU0s+Hh5tRU3lOUHh0dY/z8OTz7tzz7dnz79/s6uCioa1UVnttborY1tLz8eT07NP04qj13pH135D035b05LTz792gn6tRUnhXWXzBwML28+f06s713Y/14Ir14Y323of21nX202z13pvz7t3q6N5+fpWFhZrv7eL12pD21XD31HP4y1/5xlX5xFH4xlL3y1r047P29OfEwsNVV3tRUnm4t7z2z2f4xVD5w0/5w074xk/12Ijp5t1xco1bXH/U08/z8eb06MT2zF75xE/4xU721Hn07tuNjJ5gYoLd29X06s32z2b4xU/114WZmKZcXX/X1ND214j3x1D3ylb14a6UkqJSU3m/u7306Mj4zWz4xlH31Ynr5Nl3dIyQi5vy7uL158r50Yj6xWL7w1v6x2r42J707dr18uW7srNTVHldXH3Px8Pz8OP069b16dH07dumpK1PUXd7d43k3dLo5t2GhpuGgJLi2c728uXz8ubFw8R2cYjJvLfx6Nn28uT28OH27+D49OW8trdkZINub4taWXuNhJLGuLPn2szz6dr27+H28ePz69zq3tDTxb2vo6WkmZ/As7HZzMPbzsS9sbB9eY7Kycnq6N+WlaVVVXltaYOLg5KkmJ+ypae0qKmonKKPhpRzboZbWnxPUHdSU3heXX1iY4La1M307d+in6lMT3dwbYaFfpBbW33///9Hoo7YAAAAAWJLR0TQDtbPnAAAAAlwSFlzAAAN1wAADdcBQiibeAAAAAd0SU1FB+UFBwg3G8sbrzgAAAHBSURBVDgR3cH3f0tRGAfg97yxSc1zaiffcpRQaitq702sXLUuqVqx96hNqL13a6/ae6+awb/k3Ka5anz87ON56L8j2ONg+jOmMmXLla9QsVLlKl5BvxFJVatVr1GzllTJtevUrcf0C67foKFP+uFQPqQ0aqypNG6SIhWA1KbNAjBk8xZpmn7glq18ANJbt2nbrn2HjgBUcqcMcunOXbrCyOzWvUfPXr379AWg+vVnSvAOGAgjMGjwkKHDho8YOSoVQHD0GEoYOy4II3N8yJpgWVbWxAAANWkyU5yeMlUCsKdND1uO7Bk5MNJneihOzJqtYMyZG7GMcNa8AAw530NxesFCCSOwaHHIssKhJUvh8C/zUInlK4JwrFyVHYlEVq/JgaHW5jKV8K5bj2IbNm7avGXrNjii23dQgs7bKeGwd+3esxc2HNF9+8nFBw5KFLNtG3H+Q4cFucSRo8eO42fBE0lMLnHy1Ol8ZcOwVbTgTL6UZ8+dv5BGLr546fKVq9cKCwuu37h56/adu/fuP3j46LEgl+YnT589f/Hy1es3b4v4Xd77jA8fP30WVBrHWBRxjDURaU305es3TX/DMU3/hO9euXy3pkJD2gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMS0wNS0wN1QwODo1NToxNiswMDowMLrA9jIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjEtMDUtMDdUMDg6NTU6MTYrMDA6MDDLnU6OAAAAAElFTkSuQmCC" />
+<span>same site img</span> <img width="16px" src="/static/avatar.png"/>
+<span>remote site img</span> <img width="16px" src="https://eindex.me/assets/avatar.26a5c978.png"/>
+
+<h2>X-Content-Type</h2>
+<span>checking the develop console</span>
+<img src="/security-headers/script-not-script"/>
+
+<h2>Iframe</h2>
+<iframe width="100%" height="600px" src="/security-headers?{{ request.query_params }}">
+
+</iframe>
+</body>
+</html>
