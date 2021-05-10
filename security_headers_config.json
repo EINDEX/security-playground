@@ -4,9 +4,9 @@
     "options": {
       "default": "default-src: 'self'",
       "default-none": "default-src: 'none'",
-      "img-src": "img-src: 'self'",
-      "img-https": "img-src: https://",
-      "img-inline": "img-src: data",
+      "img-src": "img-src 'self'",
+      "img-https": "img-src 'https:'",
+      "img-inline": "img-src data:",
       "frame-none": "frame-ancestors 'none'",
       "frame-self": "frame-ancestors 'self'",
       "frame-mysite": "frame-ancestors https://sec.eindex.me"
