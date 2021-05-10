@@ -10,11 +10,13 @@ RUN set -ex && mkdir /app
 
 WORKDIR /app
 
-ONBUILD COPY Pipfile Pipfile
-ONBUILD COPY Pipfile.lock Pipfile.lock
+COPY Pipfile Pipfile
+COPY Pipfile.lock Pipfile.lock
 
-ONBUILD RUN set -ex && pipenv install --deploy --system
+RUN set -ex && pipenv install --deploy --system
 
 EXPOSE 8000
+
+COPY . .
 
 CMD uvicorn main:app --host 0.0.0.0 --port 8000
