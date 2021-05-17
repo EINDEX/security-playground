@@ -1,4 +1,18 @@
 {
+  "x_frame": {
+    "label": "X-Frame-Options",
+    "options": {
+      "deny": "deny",
+      "sameorigin": "sameorigin",
+      "allow-from": "allow-from https://sec.eindex.me"
+    }
+  },
+  "x_content": {
+    "label": "X-Content-Type-Options",
+    "options": {
+      "nosniff": "nosniff"
+    }
+  },
   "csp": {
     "label": "Content-Security-Policy",
     "options": {
@@ -17,19 +31,6 @@
     "options": {
       "max-age-10": "max-age=10",
       "max-age-60": "max-age=60"
-    }
-  },
-  "x_frame": {
-    "label": "X-Frame-Options",
-    "options": {
-      "deny": "deny",
-      "sameorigin": "sameorigin"
-    }
-  },
-  "x_content": {
-    "label": "X-Content-Type-Options",
-    "options": {
-      "nosniff": "nosniff"
     }
   },
   "referrer_policy": {

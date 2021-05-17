@@ -44,10 +44,9 @@ def get_label_and_options_text_by_header_key_and_value(header_key: str, value: s
     return header_form({})[header_key]['label'], header_form({})[header_key]['options'][value]
 
 
-@app.get("/security-headers/script-not-script", response_class=CustomResponse)
-async def script_not_script(
-):
-    return """alert(1)"""
+@app.get("/security-headers/script-not-script.jpg", response_class=CustomResponse)
+async def script_not_script():
+    return """alert(1);"""
 
 
 @app.get("/security-headers/referrer")
