@@ -7,12 +7,6 @@
       "allow-from": "allow-from https://sec.eindex.me"
     }
   },
-  "x_content": {
-    "label": "X-Content-Type-Options",
-    "options": {
-      "nosniff": "nosniff"
-    }
-  },
   "csp": {
     "label": "Content-Security-Policy",
     "options": {

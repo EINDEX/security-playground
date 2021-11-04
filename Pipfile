@@ -10,6 +10,7 @@ jinja2 = "*"
 aiofiles = "*"
 
 [dev-packages]
+safety = "*"
 
 [requires]
 python_version = "3.9"

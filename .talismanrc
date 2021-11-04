@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: Pipfile.lock
+  checksum: fee2bfeec21d0e42d47dc1b5ec67cbdfeadccfe1c2b4911eb01a83b8e8d4fba9
+version: ""
